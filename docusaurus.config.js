@@ -24,6 +24,7 @@ const SECTIONS = [
   defineSection('develop'),
   defineSection('validate'),
   defineSection('protocol'),
+  defineSection('funny-name'),
 ];
 
 /** @type {import('@docusaurus/types').Config} */
@@ -151,6 +152,11 @@ const config = {
             position: 'left',
             label: 'Protocol',
             to: '/protocol',
+          },
+          {
+            position: 'left',
+            label: 'funny-name',
+            to: '/funny-name',
           },
           {
             position: 'right',
