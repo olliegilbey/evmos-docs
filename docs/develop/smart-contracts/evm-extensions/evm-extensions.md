@@ -2,7 +2,7 @@
 
 Stateful EVM Extensions on the core protocol allow dApps and users to access logic outside of the EVM.
 Acting as a gateway, these EVM Extensions define how smart contracts can perform cross-chain transactions
-(via IBC) and interact with core functionalities on the Evmos chain (e.g. staking, voting) from the EVM.
+(via IBC) and interact with core functionalities on a Cosmos EVM chain (e.g. staking, voting) from the EVM.
 
 :::tip
 **Note**: Not sure what EVM extensions are?
@@ -27,11 +27,5 @@ queries, and examples of using them:
 - [`x/vesting` module EVM extension](./vesting.md)
 
 :::tip
-**Note**: Find the EVM Extensions Solidity interfaces and examples in the [Evmos Extensions repo](https://github.com/evmos/extensions).
+**Note**: Find the EVM Extensions Solidity interfaces and examples in the [Cosmos EVM Extensions repo](https://github.com/cosmos/evm-extensions).
 :::
-
-## Other Learning Resources
-
-- [EVM Extensions - Staking & Distribution](https://academy.evmos.org/articles/advanced/evm-extensions-stk-distr)
-  academy article
-- [Diving into EVM Extensions Workshop (DoraHacks Hackathon)](https://www.youtube.com/live/pJhOfZ0ScAE?feature=share)

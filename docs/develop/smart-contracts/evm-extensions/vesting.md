@@ -6,22 +6,18 @@ sidebar_position: 6
 
 ## Solidity Interface & ABI
 
-`Vesting.sol` is an interface through which Solidity contracts can interact with Evmos vesting module.
+`Vesting.sol` is an interface through which Solidity contracts can interact with the Cosmos SDK's vesting module.
 This is convenient for developers as they don’t need to know the implementation details behind the `x/vesting`
-module in Evmos. Instead,
+module in the Cosmos SDK. Instead,
 they can interact with vesting accounts using the Ethereum interface they are familiar with.
-
-:::tip
-To learn more about the `x/vesting` module, check out the [module's docs](https://docs.evmos.org/protocol/modules/vesting).
-:::
 
 ### Interface `Vesting.sol`
 
-Find the [Solidity interface in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/stateful/Vesting.sol).
+Find the [Solidity interface in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/stateful/Vesting.sol).
 
 ### ABI
 
-Find the [ABI in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/abi/vesting.json).
+Find the [ABI in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/abi/vesting.json).
 
 ## Transactions
 

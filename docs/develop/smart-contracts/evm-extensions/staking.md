@@ -13,11 +13,11 @@ they can interact with staking functions using the Ethereum interface they are f
 
 ### Interface `Staking.sol`
 
-Find the [Solidity interface in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/stateful/Staking.sol).
+Find the [Solidity interface in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/stateful/Staking.sol).
 
 ### ABI
 
-Find the [ABI in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/abi/staking.json).
+Find the [ABI in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/abi/staking.json).
 
 ## Transactions
 
@@ -229,7 +229,7 @@ Below are some examples of how to interact with this Solidity interface from you
 Make sure to import the precompiled interface, e.g.:
 
 ```solidity
-import "https://github.com/evmos/extensions/blob/main/precompiles/stateful/Staking.sol";
+import "https://github.com/cosmos/evm-extensions/blob/main/precompiles/stateful/Staking.sol";
 ```
 
 ### Grant approval for the desired messages
@@ -271,7 +271,7 @@ This function returns the completion time of the staking transaction and emits a
 /// @dev stake a given amount of tokens. Returns the completion time of the staking transaction.
 /// @dev This emits an Delegate event.
 /// @param _validatorAddr The address of the validator.
-/// @param _amount The amount of tokens to stake in aevmos.
+/// @param _amount The amount of tokens to stake.
 /// @return success Boolean to inform if the operation was successful or not.
 function stakeTokens(
     string memory _validatorAddr,
@@ -290,7 +290,7 @@ It returns the completion time of the unstaking transaction and emits an `Undele
 /// @dev unstake a given amount of tokens. Returns the completion time of the unstaking transaction.
 /// @dev This emits an Undelegate event.
 /// @param _validatorAddr The address of the validator.
-/// @param _amount The amount of tokens to unstake in aevmos.
+/// @param _amount The amount of tokens to unstake.
 /// @return completionTime The completion time of the unstaking transaction.
 function unstakeTokens(
     string memory _validatorAddr,
@@ -310,7 +310,7 @@ It returns the completion time of the redelegate transaction and emits a `Redele
 /// @dev This emits a Redelegate event.
 /// @param _validatorSrcAddr The address of the source validator.
 /// @param _validatorDstAddr The address of the destination validator.
-/// @param _amount The amount of tokens to redelegate in aevmos.
+/// @param _amount The amount of tokens to redelegate.
 /// @return completionTime The completion time of the redelegate transaction.
 function redelegateTokens(
     string memory _validatorSrcAddr,
@@ -337,7 +337,7 @@ and emits a `CancelUnbondingDelegation` event.
 /// @dev cancel an unbonding delegation. Returns the completion time of the unbonding delegation cancellation transaction.
 /// @dev This emits an CancelUnbondingDelegation event.
 /// @param _validatorAddr The address of the validator.
-/// @param _amount The amount of tokens to cancel the unbonding delegation in aevmos.
+/// @param _amount The amount of tokens to cancel the unbonding delegation.
 /// @param _creationHeight The creation height of the unbonding delegation.
 function cancelUnbondingDelegation(
     string memory _validatorAddr,
