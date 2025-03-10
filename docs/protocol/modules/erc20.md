@@ -1,24 +1,16 @@
 # `erc20`
 
-:::tip
-**Note:** Working on a governance proposal related to the ERC-20 Module?
-Make sure to look at [Evmos Governance](https://academy.evmos.org/articles/governance/),
-and specifically the [best practices](https://academy.evmos.org/articles/governance/best-practices).
-:::
-
 ## Abstract
 
-This document specifies the internal `x/erc20` module of the Evmos Hub.
+This document specifies the internal `x/erc20` module of the Cosmos EVM.
 
-The `x/erc20` module enables the Evmos Hub to support a trustless, on-chain bidirectional internal conversion of tokens
-between Evmos' EVM and Cosmos runtimes, specifically the `x/evm` and `x/bank` modules.
-This allows token holders on Evmos to instantaneously convert their native Cosmos `sdk.Coins`
+The `x/erc20` module enables the Cosmos EVM to support a trustless, on-chain bidirectional internal conversion of tokens
+between the EVM and Cosmos runtimes, specifically the `x/evm` and `x/bank` modules.
+This allows token holders on a Cosmos EVM chain to instantaneously convert their native Cosmos `sdk.Coins`
 (in this document referred to as "Coin(s)") to ERC-20 (aka "Token(s)") and vice versa,
 while retaining fungibility with the original asset on the issuing environment/runtime (EVM or Cosmos)
 and preserving ownership of the ERC-20 contract.
 
-This conversion functionality is fully governed by native EVMOS token holders
-who manage the canonical `TokenPair` registrations (ie, ERC20 ←→ Coin mappings).
 This governance functionality is implemented using the Cosmos-SDK `gov` module
 with custom proposal types for registering and updating the canonical mappings respectively.
 
@@ -27,16 +19,16 @@ The native Cosmos Coins cannot be used in applications that require the ERC-20 s
 Cosmos coins are held on the `x/bank` module (with access to module methods like querying the supply or balances)
 and ERC-20 Tokens live on smart contracts.
 This problem is similar to [wETH](https://coinmarketcap.com/alexandria/article/what-is-wrapped-ethereum-weth),
-with the difference, that it not only applies to gas tokens (like EVMOS),
+with the difference, that it not only applies to gas tokens,
 but to all Cosmos Coins (IBC vouchers, staking and gov coins, etc.) as well.
 
-With the `x/erc20` users on Evmos can
+With the `x/erc20` users of a Cosmos EVM chain can
 
 - use existing native cosmos assets (like OSMO or ATOM) on EVM-based chains, e.g.
 for Trading IBC tokens on DeFi protocols, buying NFT, etc.
-- transfer existing tokens on Ethereum and other EVM-based chains to Evmos
-to take advantage of application-specific chains in the Cosmos ecosystem
-- build new applications that are based on ERC-20 smart contracts and have access to the Cosmos ecosystem.
+- transfer existing tokens on Ethereum and other EVM-based chains to a Cosmos EVM chain
+to take advantage of application-specific chains in the IBC Network
+- build new applications that are based on ERC-20 smart contracts and have access to the IBC Network.
 
 ## Contents
 
@@ -70,7 +62,7 @@ When the proposal passes, the erc20 module registers the Cosmos Coin and ERC20 T
 #### Registration of a Cosmos Coin
 
 A native Cosmos Coin corresponds to an `sdk.Coin` that is native to the bank module.
-It can be either the native staking/gas denomination (e.g. EVMOS, ATOM, etc)
+It can be either the native staking/gas denomination (e.g. ATOM, etc)
 or an IBC fungible token voucher (i.e. with denom format of `ibc/{hash}`).
 
 When a proposal is initiated for an existing native Cosmos Coin,
@@ -82,7 +74,7 @@ giving the module ownership of that contract.
 
 A proposal for an existing (i.e already deployed) ERC20 contract can be initiated too.
 In this case, the ERC20 maintains the original owner of the contract
-and uses an escrow & mint / burn & unescrow mechanism similar to the one defined by the
+and uses an escrow & mint / burn & un-escrow mechanism similar to the one defined by the
 [ICS20 - Fungible Token Transfer](https://github.com/cosmos/ibc/blob/master/spec/app/ics-020-fungible-token-transfer)
 specification.
 The token pair is composed of the original ERC20 token and a corresponding native Cosmos coin denomination.
@@ -134,9 +126,9 @@ so that the conversions between the token pair's tokens can be enabled or disabl
 ### Token Conversion
 
 Once a token pair proposal passes, the module allows for the conversion of that token pair.
-Holders of native Cosmos coins and IBC vouchers on the Evmos chain can convert their Coin into ERC20 Tokens,
-which can then be used in Evmos EVM, by creating a `ConvertCoin` Tx.
-Vice versa, the `ConvertERC20` Tx allows holders of ERC20 tokens on the Evmos chain
+Holders of native Cosmos coins and IBC vouchers on a Cosmos EVM chain can convert their Coin into ERC20 Tokens,
+which can then be used on the EVM chain, by creating a `ConvertCoin` Tx.
+Vice versa, the `ConvertERC20` Tx allows holders of ERC20 tokens on the Cosmos EVM chain
 to convert ERC-20 tokens back to their native Cosmos Coin representation.
 
 Depending on the ownership of the ERC20 contract,

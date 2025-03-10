@@ -15,7 +15,7 @@ to allow users to approve the corresponding messages and amounts.
 
 ### `Authorization.sol`
 
-Find the [Solidity interface in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/common/Authorization.sol).
+Find the [Solidity interface in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/common/Authorization.sol).
 
 ## Transactions
 

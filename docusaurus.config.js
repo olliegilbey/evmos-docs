@@ -22,16 +22,15 @@ function defineSection(section, options = {}) {
 
 const SECTIONS = [
   defineSection('develop'),
-  defineSection('validate'),
   defineSection('protocol'),
-  defineSection('funny-name'),
+  defineSection('integrate'),
 ];
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Evmos Docs',
-  tagline: 'Develop on Evmos',
-  url: 'https://docs.evmos.org',
+  title: 'Cosmos EVM Docs',
+  tagline: 'Develop on Cosmos EVM',
+  url: 'https://evm.cosmos.network',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -40,7 +39,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'evmos', // Usually your GitHub org/user name.
+  organizationName: 'Interchain Labs', // Usually your GitHub org/user name.
   projectName: 'Docs', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -53,14 +52,12 @@ const config = {
 
   customFields: {
     project: {
-      name: "Evmos",
-      denom: "Evmos",
-      ticker: "EVMOS",
-      binary: "evmosd",
-      testnet_denom: "tEvmos",
-      testnet_ticker: "tEVMOS",
-      rpc_url: "https://evmos.lava.build",
-      rpc_url_testnet: "https://evmos-testnet.lava.build",
+      name: "Cosmos EVM",
+      denom: "stake",
+      ticker: "STAKE",
+      binary: "simd",
+      testnet_denom: "tStake",
+      testnet_ticker: "tSTAKE",
       rpc_url_local: "http://localhost:8545/",
       chain_id: "9001",
       testnet_chain_id: "9000",
@@ -69,10 +66,6 @@ const config = {
       testnet_version: "v16.0.0-rc5",
       version_number: "2",
       testnet_version_number: "4",
-      testnet_evm_explorer_url: "https://testnet.escan.live",
-      evm_explorer_url: "https://escan.live",
-      testnet_cosmos_explorer_url: "https://testnet.mintscan.io/evmos-testnet",
-      cosmos_explorer_url: "https://www.mintscan.io/evmos",
     },
   },
 
@@ -131,23 +124,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Evmos Docs',
+        title: 'Cosmos EVM Docs',
         logo: {
           href: '/',
-          alt: 'Evmos Logo',
-          src: 'img/evmos.svg',
+          alt: 'Cosmos EVM Logo',
+          src: 'img/cosmos.png',
         },
         items: [
-          {
-            position: 'left',
-            label: 'Develop',
-            to: '/develop',
-          },
-          {
-            position: 'left',
-            label: 'Validate',
-            to: '/validate',
-          },
           {
             position: 'left',
             label: 'Protocol',
@@ -155,8 +138,13 @@ const config = {
           },
           {
             position: 'left',
-            label: 'funny-name',
-            to: '/funny-name',
+            label: 'Integrate',
+            to: '/integrate',
+          },
+          {
+            position: 'left',
+            label: 'Develop',
+            to: '/develop',
           },
           {
             position: 'right',
@@ -164,17 +152,7 @@ const config = {
             to: '/develop/tools',
           },
           {
-            position: 'right',
-            label: 'Networks',
-            to: '/develop/api/networks',
-          },
-          {
-            position: 'right',
-            label: 'App',
-            to: 'https://app.evmos.org',
-          },
-          {
-            href: 'https://github.com/evmos/evmos',
+            href: 'https://github.com/cosmos/evm',
             className: 'pseudo-icon github-icon',
             position: 'right',
           },
@@ -191,12 +169,8 @@ const config = {
                 to: '/develop/smart-contracts',
               },
               {
-                label: 'Contribute to Evmos',
-                to: 'https://academy.evmos.org/',
-              },
-              {
-                label: 'Become a Validator',
-                to: '/validate',
+                label: 'Integrate Cosmos EVM',
+                to: '/funny-name',
               },
             ],
           },

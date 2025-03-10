@@ -13,11 +13,11 @@ they can interact with distribution functions using the Ethereum interface they 
 
 ### Interface `Distribution.sol`
 
-Find the [Solidity interface in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/stateful/Distribution.sol).
+Find the [Solidity interface in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/stateful/Distribution.sol).
 
 ### ABI
 
-Find the [ABI in the evmos/extensions repo](https://github.com/evmos/extensions/blob/main/precompiles/abi/distribution.json).
+Find the [ABI in the cosmos/evm-extensions repo](https://github.com/cosmos/evm-extensions/blob/main/precompiles/abi/distribution.json).
 
 ## Transactions
 
@@ -250,7 +250,7 @@ Below are some examples of how to interact with this Solidity interface from you
 Make sure to import the precompiled interface, e.g.:
 
 ```solidity
-import "https://github.com/evmos/extensions/blob/main/precompiles/stateful/Distribution.sol";
+import "https://github.com/cosmos/evm-extensions/blob/main/precompiles/stateful/Distribution.sol";
 ```
 
 ### Set withdraw address
